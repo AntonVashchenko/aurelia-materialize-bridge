@@ -1,0 +1,3 @@
+html[dir="rtl"] > body > div[aurelia-app="main"] > div.splash {
+direction: ltr;
+}
