@@ -27,30 +27,42 @@ export class App {
   attached(){
     if(document.getElementsByTagName('html')[0].getAttribute('dir')=='rtl')
     {
-     
-      var allLeftElements=document.querySelectorAll('.left');
-      var allRightElements=document.querySelectorAll('.right');
-
-      for(var i=0; i<allLeftElements.length; i++)
-      {
-        allLeftElements[i].className =
-        allLeftElements[i].className.replace
-           ( /(?:^|\s)left(?!\S)/g , ' right' );
-      }
-      
-      for(var i=0; i<allRightElements.length; i++)
-      {
-        allRightElements[i].className =
-        allRightElements[i].className.replace
-           ( /(?:^|\s)right(?!\S)/g , ' left' );
-      }
-      var logos=document.querySelectorAll('.brand-logo');
-      for(var i=0; i<logos.length; i++)
-      {
-        logos[i].style.position = 'inherit';
-      }     
-    }
-    
+      this.ChangeDirStyles();
+    }    
   }
 
+  ChangeDirStyles()
+  {
+    var allLeftElements=document.querySelectorAll('.left');
+    var allRightElements=document.querySelectorAll('.right');
+
+    for(var i=0; i<allLeftElements.length; i++)
+    {
+      allLeftElements[i].className =
+      allLeftElements[i].className.replace
+         ( /(?:^|\s)left(?!\S)/g , ' right' );
+    }
+    
+    for(var i=0; i<allRightElements.length; i++)
+    {
+      allRightElements[i].className =
+      allRightElements[i].className.replace
+         ( /(?:^|\s)right(?!\S)/g , ' left' );
+    }
+    var logos=document.querySelectorAll('.brand-logo');
+    for(var i=0; i<logos.length; i++)
+    {
+      logos[i].style.position = 'inherit';
+    }   
+  }
+
+  ChangeDir()
+  {
+    debugger;
+    document.getElementsByTagName('html')[0].setAttribute('dir',document.getElementById('directionList').value);
+    this.ChangeDirStyles();
+  }
 }
+
+
+
